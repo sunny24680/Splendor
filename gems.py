@@ -1,10 +1,10 @@
-from enum import Enum 
+from enum import Enum
+
 
 class Gems(Enum):
-    DIAMOND = 1
-    EMERALD = 2
-    SAPPHIRE = 3
-    RUBY = 4
-    ONYX = 5 
-    GOLD = 10
-        
+    DIAMOND = "Diamond"
+    EMERALD = "Emerald"
+    SAPPHIRE = "Sapphire"
+    RUBY = "Ruby"
+    ONYX = "Onyx"
+    GOLD = "Gold"

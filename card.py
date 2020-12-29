@@ -1,4 +1,4 @@
-class Cards:
+class Card:
 
     def __init__(self, gem, points, requirements):
         self.gem = gem
