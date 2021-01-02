@@ -1,6 +1,8 @@
 import pandas as pd
 import card
 import gems
+import random
+from deck import Deck
 
 deck_file = "Deck.xlsx"
 
@@ -13,7 +15,7 @@ def convertDeck(deck):
     newDeck = []
     for index, row in deck.iterrows():
         gem = getGem(row['Card Color'])
-        print(row[3:])
+        ## print(row[3:])
         c = 4
         req = []
         for requirement in row[3:]:
@@ -29,9 +31,18 @@ def loadDeck():
     df = df.dropna(axis=0)
     decks = [df[df["Deck"] == 1], df[df["Deck"] == 2], df[df["Deck"] == 3]]
     res = []
-    print(decks)
+    ## print(decks)
     for deck in decks:
         res.append(convertDeck(deck))
-    return res
+    return Deck(res)
 
-print(loadDeck())
+print(loadDeck().nextCard())
+#print(loadDeck().nextCard())
+
+def shuffleDeck(d: Deck):
+    return random.shuffle(d.cards)
+
+tempd = loadDeck()
+shuffleDeck(tempd)
+print(tempd.nextCard())
+print(tempd.nextCard())
